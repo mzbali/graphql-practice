@@ -1,0 +1,22 @@
+{
+  "name": "e-commerce-app",
+  "version": "1.0.0",
+  "description": "graphql practice",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "GraphQL",
+    "apollo"
+  ],
+  "author": "Mahmud Zaman Bali",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.5.0",
+    "graphql": "^16.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
