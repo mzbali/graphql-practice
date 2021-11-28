@@ -13,7 +13,7 @@ const typeDefs = gql`
     products: [Product!]!
     product(id: ID!): Product
     categories: [Category!]!
-    category(id: ID): Category
+    category(id: ID!): Category
   }
   type Product {
     name: String!
@@ -24,29 +24,31 @@ const typeDefs = gql`
     onSale: Boolean!
   }
   type Category {
+    id: ID!
     name: String!
-    products: [Product!]!
   }
 `;
 /* we are gonna resolve the hello property inside our query types */
 const resolvers = {
   Query: {
-    hello: () => {
+    hello: (parent, args, context) => {
       return 'World!'; /* returning a string 
       because that's what we,specified in our type defination */
     },
-    products: () => {
+    products: (parent, args, context) => {
       /* object type */
       return products;
     },
     product: (parent, args, context) => {
-      const prodcutId = args.id;
-      const product = products.find((product) => product.id === prodcutId);
-      if (!product) return null;
-      return product;
+      const { id } = args;
+      return products.find((product) => product.id === id);
     },
-    categories: () => {
+    categories: (parent, args, context) => {
       return categories;
+    },
+    category: (parents, args, context) => {
+      const { id } = args;
+      return categories.find((category) => category.id === id);
     },
   },
 };
