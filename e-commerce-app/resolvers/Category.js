@@ -1,5 +1,5 @@
 exports.Category = {
-  products: ({ id: categoryId }, args, { products }) => {
-    return products.filter((product) => product.categoryId === categoryId);
+  products: ({ id: categoryId }, args, { db }) => {
+    return db.products.filter((product) => product.categoryId === categoryId);
   },
 };

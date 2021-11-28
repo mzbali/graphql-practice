@@ -1,15 +1,15 @@
 exports.Query = {
-  products: (parent, args, { products }) => {
+  products: (parent, args, { db }) => {
     /* object type */
-    return products;
+    return db.products;
   },
-  product: (parent, { id }, { products }) => {
-    return products.find((product) => product.id === id);
+  product: (parent, { id }, { db }) => {
+    return db.products.find((product) => product.id === id);
   },
-  categories: (parent, args, { categories }) => {
-    return categories;
+  categories: (parent, args, { db }) => {
+    return db.categories;
   },
-  category: (parent, { id }, { categories }) => {
-    return categories.find((category) => category.id === id);
+  category: (parent, { id }, { db }) => {
+    return db.categories.find((category) => category.id === id);
   },
 };
