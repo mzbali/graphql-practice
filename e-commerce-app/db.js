@@ -81,7 +81,7 @@ const products = [
   },
   {
     id: '47bf3941-9c8b-42c0-9c72-7f3985492a5b',
-    name: 'Soccer Ball',
+    name: 'FootBall',
     description: 'Round ball',
     quantity: 734,
     price: 93.44,

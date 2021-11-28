@@ -1,23 +1,15 @@
-const { products, categories } = require('../db');
-
 exports.Query = {
-  hello: (parent, args, context) => {
-    return 'World!'; /* returning a string 
-      because that's what we,specified in our type defination */
-  },
-  products: (parent, args, context) => {
+  products: (parent, args, { products }) => {
     /* object type */
     return products;
   },
-  product: (parent, args, context) => {
-    const { id } = args;
+  product: (parent, { id }, { products }) => {
     return products.find((product) => product.id === id);
   },
-  categories: (parent, args, context) => {
+  categories: (parent, args, { categories }) => {
     return categories;
   },
-  category: (parent, args, context) => {
-    const { id } = args;
+  category: (parent, { id }, { categories }) => {
     return categories.find((category) => category.id === id);
   },
 };
