@@ -1,6 +1,9 @@
 exports.Query = {
-  products: (parent, args, { db }) => {
+  products: (parent, { filter }, { db }) => {
     /* object type */
+    if (filter?.onSale === true) {
+      return db.products.filter((product) => product.onSale);
+    }
     return db.products;
   },
   product: (parent, { id }, { db }) => {
