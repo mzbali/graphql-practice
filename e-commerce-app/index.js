@@ -5,7 +5,6 @@ const { Product } = require('./resolvers/Product');
 const { Query } = require('./resolvers/Query');
 const { typeDefs } = require('./schema');
 const { db } = require('./db');
-
 /* In the server we need to specify our type defination and resolver and context */
 const server = new ApolloServer({
   typeDefs,
