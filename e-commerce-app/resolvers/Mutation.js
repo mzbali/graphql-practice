@@ -61,4 +61,33 @@ exports.Mutation = {
     db.reviews = db.reviews.filter((review) => review.id !== id);
     return true;
   },
+  updateCategory: (parent, { id, input }, { db }) => {
+    const categoryIndex = db.categories.findIndex(
+      (category) => category.id === id
+    );
+    if (categoryIndex === -1) return null;
+    db.categories[categoryIndex] = {
+      ...db.categories[categoryIndex],
+      ...input,
+    };
+    return db.categories[categoryIndex];
+  },
+  updateProduct: (parent, { id, input }, { db }) => {
+    const productIndex = db.products.findIndex((product) => product.id === id);
+    if (productIndex === -1) return null;
+    db.products[productIndex] = {
+      ...db.products[productIndex],
+      ...input,
+    };
+    return db.products[productIndex];
+  },
+  updateReview: (parent, { id, input }, { db }) => {
+    const reviewIndex = db.reviews.findIndex((review) => review.id === id);
+    if (reviewIndex === -1) return null;
+    db.reviews[reviewIndex] = {
+      ...db.reviews[reviewIndex],
+      ...input,
+    };
+    return db.reviews[reviewIndex];
+  },
 };
